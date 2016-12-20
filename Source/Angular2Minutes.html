@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2MinAngular</title>
+	<script src="angular.min.js"></script>
+	<script src="functions.js"></script>
+</head>
+<body>
+	<style>body {background-color: lightblue;}
+	</style>
+	
+	<style> a {cursor: pointer;text-decoration: underline};
+	</style> 
+	<div data-ng-app="myApp" data-ng-controller="myCtrl as vm">
+		<b>Names</b>
+	    <ul>
+	        <li ng-repeat="user in vm.userList">
+	            <a ng-click="vm.selectUser(user)">{{user.getFullName()}}</a>   
+	        </li>
+	    </ul>
+	    <hr>
+
+		<b>Selected User</b>
+		<br>
+		First name: <input type="text" data-ng-model="vm.currentUser.firstName">
+		<br>
+		Last name: <input type="text" data-ng-model="vm.currentUser.lastName">
+		<br>
+		<br>
+		Full name: {{vm.currentUser.getFullName()}}
+	</div>	
+</body>
+</html>
